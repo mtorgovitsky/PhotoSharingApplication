@@ -7,9 +7,9 @@ using System.Web;
 
 namespace PhotoSharingApplication.Models
 {
-    public class PhotoSharingInitializer : DropCreateDatabaseAlways<PhotoSharingContext>
+    public class PhotoSharingInitializer : DropCreateDatabaseAlways<PhotoSharingDB>
     {
-        protected override void Seed(PhotoSharingContext context)
+        protected override void Seed(PhotoSharingDB context)
         {
             base.Seed(context);
 

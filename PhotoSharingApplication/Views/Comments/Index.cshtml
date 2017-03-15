@@ -1,0 +1,19 @@
+﻿@model IEnumerable<PhotoSharingApplication.Models.Comment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<div>
+    @{ 
+        foreach (var item in Model)
+        {
+            @item.Subject
+            <br />
+            @item.Body
+        }
+    }
+</div>

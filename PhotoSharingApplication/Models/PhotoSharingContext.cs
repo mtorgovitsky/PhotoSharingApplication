@@ -6,9 +6,20 @@ using System.Web;
 
 namespace PhotoSharingApplication.Models
 {
-    public class PhotoSharingContext : DbContext
+    public class PhotoSharingDB : DbContext
     {
-        public DbSet<Photo> Photos { get; set; }
-        public DbSet<Comment> Comments { get; set; }
+        public PhotoSharingDB()
+            : base("name=PhotoSharingDB")
+        {
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<PhotoSharingDB>(new PhotoSharingInitializer());
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public virtual DbSet<Photo> Photos { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
     }
 }

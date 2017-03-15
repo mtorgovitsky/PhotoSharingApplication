@@ -9,96 +9,32 @@ namespace PhotoSharingApplication.Controllers
 {
     public class PhotoController : Controller
     {
-        public PhotoSharingContext Context;
-
-        //--------   CTOR'S   --------//
-        public PhotoController()
-        {
-            Context = new PhotoSharingContext();
-        }
-
-        public PhotoController(PhotoSharingContext context)
-        {
-            Context = context;
-        }
-        //--------   CTOR'S   --------//
+        private PhotoSharingDB db = new PhotoSharingDB();
 
         // GET: Photo
         public ActionResult Index()
         {
-            return View(Context);
+            return View(db.Photos.ToList());
         }
 
-        // GET: Photo/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int id = 0)
         {
-            return View();
-        }
+            Photo photo = db.Photos.Find(id);
 
-        // GET: Photo/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Photo/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+            if (photo == null)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                return HttpNotFound();
             }
-            catch
+            else
             {
-                return View();
+                return View("Details", photo);
             }
         }
 
-        // GET: Photo/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult DisplayPhoto(int id)
         {
-            return View();
-        }
-
-        // POST: Photo/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Photo/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Photo/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            Photo photo = db.Photos.Find(id);
+            return File(photo.PhotoFile, photo.ImageMimeType);
         }
     }
 }
