@@ -1,0 +1,9 @@
+﻿@model PhotoSharingApplication.Models.PhotoSharingContext
+
+@{
+    ViewBag.Title = "All Photos";
+}
+
+<h2>Index</h2>
+
+@Model.Photos.First().Title

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using PhotoSharingApplication.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +15,9 @@ namespace PhotoSharingApplication
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //Added by Me
+            Database.SetInitializer<PhotoSharingContext>(new PhotoSharingInitializer());
         }
     }
 }
