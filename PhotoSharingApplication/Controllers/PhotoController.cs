@@ -31,6 +31,19 @@ namespace PhotoSharingApplication.Controllers
             }
         }
 
+        public ActionResult GetPhotoByTitle(string title)
+        {
+            Photo photo = db.Photos.FirstOrDefault(p => p.Title == title);
+            if (photo != null)
+            {
+                return View("Details", photo);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+        }
+
         public ActionResult DisplayPhoto(int id)
         {
             Photo photo = db.Photos.Find(id);
