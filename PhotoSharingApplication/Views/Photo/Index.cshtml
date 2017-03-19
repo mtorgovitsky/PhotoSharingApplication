@@ -9,6 +9,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<p>
+@Html.ActionLink("Click And Take Photo", "Display", new { id = 6 })
+</p>
+
 <table class="table">
     <tr>
         <th>
@@ -32,33 +37,34 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            <img width="200" src="@Url.Action("GetImage", "Photo", new { id = item.PhotoID })" />
-            @*@Html.DisplayFor(modelItem => item.PhotoFile)*@
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageMimeType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PhotoID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PhotoID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PhotoID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                <img width="200" src="@Url.Action("GetImage", "Photo", new { id = item.PhotoID })" />
+                @*@Html.DisplayFor(modelItem => item.PhotoFile)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageMimeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PhotoID }) |
+                @Html.ActionLink("Details", "Display", new { id = item.PhotoID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PhotoID })
+            </td>
+        </tr>
+    }
 
 </table>

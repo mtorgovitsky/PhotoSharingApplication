@@ -27,6 +27,7 @@ namespace PhotoSharingApplication.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yy}", ApplyFormatInEditMode = true)]
         public DateTime CreatedDate { get; set; }
 
+        //[DisplayName("User Name")]
         public string UserName { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }

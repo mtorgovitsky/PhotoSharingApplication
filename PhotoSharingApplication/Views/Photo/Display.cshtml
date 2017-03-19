@@ -1,67 +1,36 @@
 ﻿@model PhotoSharingApplication.Models.Photo
 
 @{
-    ViewBag.Title = "Display";
+    //Layout = null;
 }
 
-<h2>Display</h2>
+<!DOCTYPE html>
 
-<div>
-    <h4>Photo</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhotoFile)
-        </dt>
-
-        <dd>
-            <img width="200" src="@Url.Action("GetImage", "Photo", new { id = Model.PhotoID })" />
-            @*@Html.DisplayFor(model => model.PhotoFile)*@
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageMimeType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageMimeType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display</title>
+</head>
+<body>
+    <div>
+        <h2>
+            @Model.Title
+        </h2>
+        <img width="800px" src="@Url.Action("GetImage", new { id = Model.PhotoID})" />
+        <p>
             @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-
-        <dt>
+        </p>
+        <p>
             @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-
-        <dd>
             @Html.DisplayFor(model => model.UserName)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PhotoID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </p>
+        <p>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+            @Html.DisplayFor(model => model.CreatedDate)
+        </p>
+        <p>
+            @Html.ActionLink("Back To List", "Index")
+        </p>
+    </div>
+</body>
+</html>
