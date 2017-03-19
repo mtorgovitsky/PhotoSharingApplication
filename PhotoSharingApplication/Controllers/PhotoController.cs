@@ -121,6 +121,26 @@ namespace PhotoSharingApplication.Controllers
             return RedirectToAction("Index");
         }
 
+        [ChildActionOnly]
+        public ActionResult _PhotoGallery(int number = 0)
+        {
+            List<Photo> photos;
+
+            if(number == 0)
+            {
+                photos = db.Photos.ToList();
+            }
+            else
+            {
+                photos = db.Photos
+                    .Take(number)
+                    .OrderByDescending(p => p.CreatedDate)
+                    .ToList();
+            }
+
+            return PartialView("_PhotoGallery", photos);
+        }
+
         public FileContentResult GetImage(int id)
         {
             Photo photo = db.Photos.Find(id);

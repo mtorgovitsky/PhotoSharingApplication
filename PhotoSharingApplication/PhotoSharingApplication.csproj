@@ -147,9 +147,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Comments\Index.cshtml" />
-    <Content Include="Views\Photo\Index.cshtml" />
+    <Content Include="Views\Photo\Index_BKP.cshtml" />
     <Content Include="Views\Photo\Display_BKP.cshtml" />
     <Content Include="Views\Photo\Display.cshtml" />
+    <Content Include="Views\Photo\Create.cshtml" />
+    <Content Include="Views\Shared\_PhotoGallery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
