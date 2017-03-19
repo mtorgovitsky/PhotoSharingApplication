@@ -1,0 +1,21 @@
+﻿
+@{
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome to Adventure Works Photo Sharing</title>
+</head>
+<body>
+    <div> 
+        Welcome to Adventure Works Photo Sharing!
+        Use this site to share Your Adventures.
+        <h2>Latest Photos</h2>
+        @Html.Action("_PhotoGallery", "Photo", new { number = 3 })
+    </div>
+</body>
+</html>
